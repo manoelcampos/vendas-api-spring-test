@@ -2,7 +2,6 @@ package io.github.manoelcampos.vendas.api.model;
 
 import io.github.manoelcampos.vendas.api.ClassUtils;
 import io.github.manoelcampos.vendas.api.config.ConstraintKeys;
-import io.github.manoelcampos.vendas.api.shared.model.BaseModel;
 import io.github.manoelcampos.vendas.api.shared.util.ConstraintViolation;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.UniqueConstraint;

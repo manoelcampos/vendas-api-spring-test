@@ -1,6 +1,6 @@
 package io.github.manoelcampos.vendas.api.shared;
 
-import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,7 +1,8 @@
 package io.github.manoelcampos.vendas.api.feature.cidade;
 
 import io.github.manoelcampos.vendas.api.feature.AbstractRepositoryTest;
-import io.github.manoelcampos.vendas.api.feature.estado.Estado;
+import io.github.manoelcampos.vendas.api.model.Estado;
+import io.github.manoelcampos.vendas.api.model.Cidade;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,12 +37,12 @@ class CidadeRepositoryTest extends AbstractRepositoryTest {
 
     @Test
     void deleteById() {
-        /*var ex = assertThrows(DataIntegrityViolationException.class, () -> {
+        assertThrows(DataIntegrityViolationException.class, () -> {
             repository.deleteById(1L);
             repository.flush();
         });
 
-        assertConstraintViolation(ex, FK_ACAO_META__Cidade);*/
+        //assertConstraintViolation(ex, ConstraintKeys.FK_CIDADE__ESTADO);
     }
 
     @Test

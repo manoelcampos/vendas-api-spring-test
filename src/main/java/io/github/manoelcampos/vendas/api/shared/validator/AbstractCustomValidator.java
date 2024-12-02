@@ -1,6 +1,6 @@
 package io.github.manoelcampos.vendas.api.shared.validator;
 
-import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
 import org.springframework.validation.Errors;
 
 /**

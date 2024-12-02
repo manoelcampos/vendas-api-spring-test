@@ -1,5 +1,6 @@
 package io.github.manoelcampos.vendas.api.feature.cidade;
 
+import io.github.manoelcampos.vendas.api.model.Cidade;
 import io.github.manoelcampos.vendas.api.shared.service.AbstractCrudService;
 import org.springframework.stereotype.Service;
 

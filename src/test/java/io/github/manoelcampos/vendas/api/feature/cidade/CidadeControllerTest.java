@@ -1,7 +1,8 @@
 package io.github.manoelcampos.vendas.api.feature.cidade;
 
 import io.github.manoelcampos.vendas.api.api.AbstractApiTest;
-import io.github.manoelcampos.vendas.api.feature.estado.Estado;
+import io.github.manoelcampos.vendas.api.model.Estado;
+import io.github.manoelcampos.vendas.api.model.Cidade;
 import io.github.manoelcampos.vendas.api.shared.util.PathUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.Preconditions;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Manoel Campos
  */
 class CidadeControllerTest extends AbstractApiTest {
-    private static final String RELATIVE_URL = "/distrito";
+    private static final String RELATIVE_URL = "/cidade";
     private static final String BY_ID_URL = PathUtil.concat(RELATIVE_URL, "/{id}");
 
     @Test
@@ -31,7 +32,7 @@ class CidadeControllerTest extends AbstractApiTest {
 
     @Test
     void insertAndDelete() {
-        final var cidade = new Cidade("Novo Cidade", new Estado(1));
+        final var cidade = new Cidade("Nova Cidade", new Estado(1));
         final var novaCidade = insert(cidade);
         assertEquals(cidade.getDescricao(), novaCidade.getDescricao());
         assertNotNull(novaCidade.getId());

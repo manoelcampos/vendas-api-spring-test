@@ -1,9 +1,7 @@
-package io.github.manoelcampos.vendas.api.feature.cidade;
+package io.github.manoelcampos.vendas.api.model;
 
 
 import io.github.manoelcampos.vendas.api.config.ConstraintKeys;
-import io.github.manoelcampos.vendas.api.feature.estado.Estado;
-import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -21,6 +19,7 @@ public class Cidade extends AbstractBaseModel {
     @NotNull @NotBlank
     private String descricao;
 
+    @NotNull
     @JoinColumn(foreignKey = @ForeignKey(name = ConstraintKeys.FK_CIDADE__ESTADO))
     @ManyToOne
     private Estado estado;

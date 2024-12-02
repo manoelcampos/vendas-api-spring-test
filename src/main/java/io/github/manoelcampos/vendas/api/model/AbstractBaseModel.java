@@ -1,4 +1,4 @@
-package io.github.manoelcampos.vendas.api.shared.model;
+package io.github.manoelcampos.vendas.api.model;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;

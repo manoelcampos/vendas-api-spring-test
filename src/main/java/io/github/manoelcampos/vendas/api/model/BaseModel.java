@@ -1,4 +1,4 @@
-package io.github.manoelcampos.vendas.api.shared.model;
+package io.github.manoelcampos.vendas.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.jetbrains.annotations.Nullable;

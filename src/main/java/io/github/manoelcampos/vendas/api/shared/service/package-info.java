@@ -2,7 +2,7 @@
  * Classes base para implementação de serviços a serem usadas pelos controllers REST.
  *
  * <p>
- * Crie uma classe de serviço para cada classe {@link io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel} do sistema.
+ * Crie uma classe de serviço para cada classe {@link io.github.manoelcampos.vendas.api.model.AbstractBaseModel} do sistema.
  * Tal classe deve ser criada no subpacote dentro de {@link saneaplan.api.feature},
  * contendo as classes para a implementação de uma determinada funcionalidade do sistema
  * (como as classes service, repository e controller para um determinado cadatro).

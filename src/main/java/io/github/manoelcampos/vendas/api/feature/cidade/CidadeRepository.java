@@ -1,5 +1,6 @@
 package io.github.manoelcampos.vendas.api.feature.cidade;
 
+import io.github.manoelcampos.vendas.api.model.Cidade;
 import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import org.springframework.stereotype.Repository;
 

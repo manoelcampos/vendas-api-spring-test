@@ -1,14 +1,13 @@
 package io.github.manoelcampos.vendas.api.feature;
 
-import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import io.github.manoelcampos.vendas.api.shared.util.ConstraintViolation;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * Classe base para implementação de testes de {@link EntityRepository}.
+/** Classe base para a implementação de testes de integração dos {@link org.springframework.stereotype.Repository}.
+ * AVISO: As subclasses não devem ser final. Incluindo final é gerado um warning.
  * @author Manoel Campos
  */
 @DataJpaTest
