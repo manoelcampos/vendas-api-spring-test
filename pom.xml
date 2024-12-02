@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
+        <version>3.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.github.manoelcampos</groupId>
@@ -16,8 +16,6 @@
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
         <maven.compiler.version>3.11.0</maven.compiler.version>
-        <lombok.version>1.18.30</lombok.version>
-        <dtogen.version>1.1.4</dtogen.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -25,10 +23,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-            <!-- Usa versão explícitamente, pois o Spring tá usando versão mais antiga da lib
-             que causa problemas com JDK 21. -->
-            <version>${lombok.version}</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -126,6 +121,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
