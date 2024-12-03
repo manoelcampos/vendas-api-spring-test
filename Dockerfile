@@ -1,0 +1,24 @@
+# App dependencies download stage
+# https://vsupalov.com/5-tips-to-speed-up-docker-build/
+FROM maven:3-amazoncorretto-17 AS deps
+ENV WORKDIR=/api
+ENV MAVEN_REPO=$WORKDIR/.m2
+WORKDIR $WORKDIR
+COPY pom.xml .
+RUN mvn -Dmaven.repo.local=$MAVEN_REPO dependency:go-offline
+
+# App build stage
+FROM deps as build
+WORKDIR $WORKDIR
+COPY . .
+COPY --from=deps $MAVEN_REPO .
+
+# Ignora os testes pois eles já são executados no workflow de build do GitHub Actions
+RUN mvn -Dmaven.repo.local=$MAVEN_REPO package -DskipTests
+
+# App copy stage
+FROM amazoncorretto:17.0.7-alpine
+WORKDIR $WORKDIR
+COPY --from=build /api/target/vendas-api-*.jar "./vendas-api.java"
+EXPOSE 8080
+CMD [ "java", "-jar", "vendas-api.java" ]

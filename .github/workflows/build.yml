@@ -5,6 +5,7 @@ on:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
+  workflow_call:  # permite chamar este workflow a partir de outros (como no deploy)
 
 jobs:
   build:
