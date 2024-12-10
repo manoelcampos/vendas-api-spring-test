@@ -21,11 +21,9 @@ Ou usando o http://sdkman.io[sdkman] em Linux e macOS.
 
 === IDE
 
-O melhor IDE para desenvolvimento do projeto é o IntelliJ, pois tem excelente suporte ao Spring.
-É sugerida a instalação das extensões:
+O melhor IDE para desenvolvimento do projeto é o IntelliJ, pois tem excelente suporte ao Spring. É sugerida a instalação das extensões:
 
-* https://plugins.jetbrains.com/plugin/15075-jpa-buddy[JPA Buddy
-Como o projeto usa http://projectlombok.org[Lombok] e JPA, a JPA Buddy mostra warnings quando as anotações do Lombok não estiverem sendo usadas da melhor forma.
+* https://plugins.jetbrains.com/plugin/15075-jpa-buddy[JPA Buddy]: Como o projeto usa http://projectlombok.org[Lombok] e JPA, a JPA Buddy mostra warnings quando as anotações do Lombok não estiverem sendo usadas da melhor forma.
 
 Ao abrir o projeto no IntelliJ, ele também pede para habilitar o "Processamento de Anotações" para o Lombok funcionar.
 Assim, tal opção precisa ser habilitada.
