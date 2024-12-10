@@ -1,8 +1,7 @@
 package io.github.manoelcampos.vendas.api.feature.cidade;
 
 import io.github.manoelcampos.vendas.api.feature.AbstractRepositoryTest;
-import io.github.manoelcampos.vendas.api.model.Estado;
-import io.github.manoelcampos.vendas.api.model.Cidade;
+import io.github.manoelcampos.vendas.api.feature.estado.Estado;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

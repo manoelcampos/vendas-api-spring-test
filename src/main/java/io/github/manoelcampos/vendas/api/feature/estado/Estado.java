@@ -1,6 +1,7 @@
-package io.github.manoelcampos.vendas.api.model;
+package io.github.manoelcampos.vendas.api.feature.estado;
 
 import io.github.manoelcampos.vendas.api.config.ConstraintKeys;
+import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;

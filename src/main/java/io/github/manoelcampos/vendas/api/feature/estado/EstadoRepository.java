@@ -1,6 +1,5 @@
 package io.github.manoelcampos.vendas.api.feature.estado;
 
-import io.github.manoelcampos.vendas.api.model.Estado;
 import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import org.springframework.stereotype.Repository;
 
