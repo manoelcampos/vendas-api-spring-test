@@ -7,6 +7,7 @@ import jakarta.persistence.UniqueConstraint;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.annotation.AnnotationUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Field;
@@ -27,6 +28,8 @@ import static java.util.stream.Collectors.joining;
  * @author Manoel Campos
  */
 public class ClassUtils {
+    private static final String SOURCE_DIR = "src/main/java/".replaceAll("/", File.separator);
+
     /**
      * Construtor privado para evitar que a classe seja instanciada.
      */
@@ -47,17 +50,19 @@ public class ClassUtils {
     }
 
     public static List<Class<?>> getClassesForPackage(final String packageName) {
-        final String path = "src/main/java/" + packageName.replace('.', '/');
+        final String path = packageName.startsWith(SOURCE_DIR) ? packageName : SOURCE_DIR + packageName.replaceAll("\\.", File.separator);
         final var classes = new LinkedList<Class<?>>();
         try (final var directoryStream = Files.newDirectoryStream(Paths.get(path))) {
             for (final var pathElement : directoryStream) {
                 if (Files.isRegularFile(pathElement) && pathElement.toString().endsWith(".java")) {
-                    final var className = packageName + '.' + pathElement.getFileName().toString().replace(".java", "");
+                    final var className = getClassName(packageName, pathElement);
                     try {
                         classes.add(Class.forName(className));
                     } catch (ClassNotFoundException e) {
                         // Ignora classes que não puderam ser carregadas
                     }
+                } else if(Files.isDirectory(pathElement)){
+                    classes.addAll(getClassesForPackage(getPackageNameFromPath(pathElement)));
                 }
             }
         } catch (final IOException e) {
@@ -65,6 +70,16 @@ public class ClassUtils {
         }
 
         return classes;
+    }
+
+    private static String getPackageNameFromPath(final Path path) {
+        final String pathStr = path.toString();
+        final String packageName = pathStr.contains(SOURCE_DIR) ? pathStr.replace(SOURCE_DIR, "") : pathStr;
+        return packageName.replaceAll("[\\\\/]", ".");
+    }
+
+    private static @NotNull String getClassName(final String packageName, final Path pathElement) {
+        return packageName + '.' + pathElement.getFileName().toString().replace(".java", "");
     }
 
     public static @NotNull Stream<ForeignKey> getFieldForeignKeyStream(final Class<?> aClass) {

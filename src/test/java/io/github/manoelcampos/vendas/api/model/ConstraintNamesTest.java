@@ -60,7 +60,7 @@ class ConstraintNamesTest {
      */
     @Test
     void foreignKeyNames() {
-        final var classes = ClassUtils.getClassesForPackage(getClass().getPackageName());
+        final var classes = ClassUtils.getClassesForPackage("");
         for (var aClass : classes) {
             ClassUtils.getFieldForeignKeyStream(aClass)
                       .map(ForeignKey::name)
