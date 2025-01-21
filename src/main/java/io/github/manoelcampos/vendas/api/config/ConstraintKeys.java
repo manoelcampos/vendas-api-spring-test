@@ -1,8 +1,8 @@
 package io.github.manoelcampos.vendas.api.config;
 
+import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.controller.AbstractController;
 import io.github.manoelcampos.vendas.api.shared.controller.RestExceptionHandler;
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.util.ConstraintViolation;
 import jakarta.persistence.Entity;
 
@@ -39,5 +39,5 @@ public final class ConstraintKeys {
     public static final String UC_CIDADE_DESCRICAO = "uc_cidade__descricao___";
 
     public static final String FK_CIDADE__ESTADO = "fk_cidade__estado";
-
+    public static final String FK_CLIENTE_CIDADE = "fk_cliente__cidade";
 }
