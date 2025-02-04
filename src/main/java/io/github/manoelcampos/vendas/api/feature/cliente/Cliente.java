@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,8 +17,10 @@ import org.hibernate.validator.constraints.br.CPF;
 
 @Entity @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Cliente extends AbstractBaseModel {
+    @NotNull @NotBlank
     private String nome;
-    @CPF
+
+    @CPF @NotNull @NotBlank
     private String cpf;
 
     @ManyToOne

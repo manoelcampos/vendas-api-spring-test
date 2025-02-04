@@ -11,10 +11,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Manoel Campos
@@ -28,9 +30,15 @@ public class Venda extends AbstractBaseModel {
     private LocalDateTime dataHora = LocalDateTime.now();
 
     @OneToMany(mappedBy = "venda")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<ItemVenda> itens = new ArrayList<>();
 
     public Venda(final long id) {
         this.setId(id);
+    }
+
+    public void setItens(List<ItemVenda> itens) {
+        this.itens = Objects.requireNonNullElse(itens, new ArrayList<>());
+        this.itens.forEach(item -> item.setVenda(this));
     }
 }
