@@ -58,4 +58,4 @@ insert into cidade (estado_id, descricao) values (27,'Vitória'); -- Espírito S
 insert into cliente(nome, cpf, cidade_id) values ('Manoel', '11111111111', 1);
 
 insert into produto(descricao, preco, estoque) values ('Notebook', 5.00, 2);
-insert into produto(descricao, preco, estoque) values ('TV', 1500.00, 10);
+insert into produto(descricao, preco, estoque) values ('TV', 1500.00, 0);

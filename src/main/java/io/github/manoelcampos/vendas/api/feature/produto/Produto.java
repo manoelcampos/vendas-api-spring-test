@@ -26,6 +26,13 @@ public class Produto extends AbstractBaseModel {
     private int estoque;
 
     public Produto(final long id) {
-        this.setId(id);
+        setId(id);
+    }
+
+    public Produto(long id, String descricao, double preco, int estoque) {
+        setId(id);
+        setDescricao(descricao);
+        setPreco(preco);
+        setEstoque(estoque);
     }
 }
