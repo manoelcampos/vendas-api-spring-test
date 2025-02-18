@@ -1,19 +1,21 @@
 package io.github.manoelcampos.vendas.api.feature.venda;
 
+import io.github.manoelcampos.vendas.api.feature.produto.Produto;
 import io.github.manoelcampos.vendas.api.feature.produto.ProdutoRepository;
 import io.github.manoelcampos.vendas.api.shared.service.AbstractCrudService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
 
+import static java.util.Objects.requireNonNullElse;
+
 @Service
 public class VendaService extends AbstractCrudService<Venda, VendaRepository> {
-    @Autowired
-    private ProdutoRepository produtoRepository;
+    private final ProdutoRepository produtoRepository;
 
-    public VendaService(final VendaRepository repository) {
+    public VendaService(final VendaRepository repository, final ProdutoRepository produtoRepository) {
         super(repository);
+        this.produtoRepository = produtoRepository;
     }
 
     /**
@@ -24,15 +26,20 @@ public class VendaService extends AbstractCrudService<Venda, VendaRepository> {
      */
     @Override
     public Venda save(final Venda venda) {
-        System.out.println("Salvando a venda");
         for (ItemVenda item : venda.getItens()) {
-            System.out.println("Verificando estoque para o item " + item);
-            final Long id = item.getProduto().getId();
-            if (id == null) {
+            final var produto = item.getProduto();
+
+            // requireNonNullElse é uma forma simplificada de escrever um if-else
+            final Long prodId = requireNonNullElse(produto, new Produto()).getId();
+            //if (produto == null || produto.getId() == null) {
+            if (prodId == null) {
                 throw new IllegalStateException("Produto não informado");
             }
 
-            final var prod = produtoRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Produto não encontrado"));
+            final var prod =
+                    produtoRepository
+                            .findById(prodId)
+                            .orElseThrow(() -> new NoSuchElementException("Produto não encontrado"));
             if(item.getQuant() > prod.getEstoque()){
                 throw new IllegalStateException("Produto %s não tem estoque suficiente".formatted(prod.getDescricao()));
             }

@@ -26,4 +26,8 @@ public class Cliente extends AbstractBaseModel {
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = ConstraintKeys.FK_CLIENTE_CIDADE))
     private Cidade cidade;
+
+    public Cliente(final long id) {
+        setId(id);
+    }
 }

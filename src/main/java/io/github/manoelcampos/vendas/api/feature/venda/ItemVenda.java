@@ -26,4 +26,13 @@ public class ItemVenda extends AbstractBaseModel {
     public ItemVenda(final long id) {
         this.setId(id);
     }
+
+    public ItemVenda(final long produtoId, final int quant) {
+        setProduto(new Produto(produtoId));
+        setQuant(quant);
+    }
+
+    public ItemVenda(final Produto produto) {
+        setProduto(produto);
+    }
 }

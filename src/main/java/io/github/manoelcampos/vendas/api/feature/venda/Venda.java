@@ -37,6 +37,10 @@ public class Venda extends AbstractBaseModel {
         this.setId(id);
     }
 
+    public Venda(final Cliente cliente) {
+        setCliente(cliente);
+    }
+
     public void setItens(final List<ItemVenda> itens) {
         this.itens = Objects.requireNonNullElse(itens, new ArrayList<>());
         this.itens.forEach(item -> item.setVenda(this));
