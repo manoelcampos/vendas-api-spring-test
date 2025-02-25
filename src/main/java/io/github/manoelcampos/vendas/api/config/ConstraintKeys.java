@@ -40,4 +40,7 @@ public final class ConstraintKeys {
 
     public static final String FK_CIDADE__ESTADO = "fk_cidade__estado";
     public static final String FK_CLIENTE_CIDADE = "fk_cliente__cidade";
+
+    public static final String FK_ITEM_VENDA__VENDA = "fk_item_venda__venda";
+    public static final String FK_ITEM_VENDA__PRODUTO = "fk_item_venda__produto";
 }
