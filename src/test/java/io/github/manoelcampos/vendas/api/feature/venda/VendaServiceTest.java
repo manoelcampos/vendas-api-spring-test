@@ -51,7 +51,7 @@ class VendaServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    void saveProdutoSemEstoque() {
+    void insertProdutoSemEstoque() {
         configurarMockProdutoRepository(prod1);
         final var itens = List.of(new ItemVenda(1, 20), new ItemVenda(2, 5));
         venda.setItens(itens);
@@ -60,7 +60,7 @@ class VendaServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    void saveProdutoNaoInformado() {
+    void insertProdutoNaoInformado() {
         configurarMockProdutoRepository(prod1);
         final var itens = List.of(new ItemVenda(1, 2), new ItemVenda());
         venda.setItens(itens);
@@ -69,7 +69,7 @@ class VendaServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    void saveIdProdutoNaoInformado() {
+    void insertIdProdutoNaoInformado() {
         configurarMockProdutoRepository(prod1);
         final var itens = List.of(new ItemVenda(1, 2), new ItemVenda(new Produto()));
         venda.setItens(itens);
@@ -77,10 +77,9 @@ class VendaServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    void saveProdutoNaoLocalizado() {
+    void insertProdutoNaoLocalizado() {
         final var itens = List.of(new ItemVenda(3, 2));
         venda.setItens(itens);
         assertThrows(NoSuchElementException.class, () -> service.save(venda));
     }
-
 }
