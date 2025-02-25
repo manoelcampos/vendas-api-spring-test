@@ -2,33 +2,11 @@
 
 = Vendas REST API (Backend)
 
-Backend em Java 17 com SpringBoot 3, fornecendo uma API REST.
+Backend em Java 21 com SpringBoot 3, fornecendo uma API REST.
 
 == Configurar Ambiente de Desenvolvimento
 
-=== JDK
-
-Requer o JDK 17 que pode ser baixado diretamente pelo IntelliJ.
-Mas ele pode ser instalado no Ubuntu com:
-
-[source,bash]
-----
-sudo apt update
-sudo apt install openjdk-17-jdk
-----
-
-Ou usando o http://sdkman.io[sdkman] em Linux e macOS.
-
-=== IDE
-
-O melhor IDE para desenvolvimento do projeto é o IntelliJ, pois tem excelente suporte ao Spring. É sugerida a instalação das extensões:
-
-* https://plugins.jetbrains.com/plugin/15075-jpa-buddy[JPA Buddy]: Como o projeto usa http://projectlombok.org[Lombok] e JPA, a JPA Buddy mostra warnings quando as anotações do Lombok não estiverem sendo usadas da melhor forma.
-
-Ao abrir o projeto no IntelliJ, ele também pede para habilitar o "Processamento de Anotações" para o Lombok funcionar.
-Assim, tal opção precisa ser habilitada.
-
-=== Habilitar DevTools
+=== Habilitar Spring DevTools para reiniciar o servidor quando o projeto for alterado
 
 Acesse as configurações do IntelliJ e habilite:
 
