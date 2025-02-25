@@ -29,7 +29,7 @@ public final class StringUtil {
      * Converte um texto (como o nome de uma tabela ou campo do banco) em um formato mais legível para humano,
      * para ser exibida em mensagens para o usuário.
      * Tal nome pode ser usado para formatar mensagens de erro (referentes a tal tabela)
-     * de forma mais adequadas para o usuário.
+     * de forma mais adequada para o usuário.
      *
      * @param text um texto normalmente usando underscore para separar palavras, a ser convertido para um texto mais legível
      * @return o texto convertido
