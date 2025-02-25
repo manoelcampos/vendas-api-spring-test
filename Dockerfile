@@ -17,7 +17,7 @@ COPY --from=deps $MAVEN_REPO .
 RUN mvn -Dmaven.repo.local=$MAVEN_REPO package -DskipTests
 
 # App copy stage
-FROM amazoncorretto:17.0.7-alpine
+FROM amazoncorretto:21-alpine
 WORKDIR $WORKDIR
 RUN apk add curl
 COPY --from=build /api/target/vendas-api-*.jar "./vendas-api.java"
