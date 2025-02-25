@@ -56,7 +56,7 @@ class ConstraintNamesTest {
     }
 
     /**
-     * Verifica se o nome das FKs está de acordo com o formato esperado.
+     * Verifica se o nome das FKs está conforme o formato esperado.
      */
     @Test
     void foreignKeyNames() {
