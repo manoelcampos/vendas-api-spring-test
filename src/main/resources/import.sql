@@ -55,7 +55,16 @@ insert into cidade (estado_id, descricao) values (25, 'Teresina'); -- Piauí
 insert into cidade (estado_id, descricao) values (26, 'Fortaleza'); -- Ceará
 insert into cidade (estado_id, descricao) values (27,'Vitória'); -- Espírito Santo
 
-insert into cliente(nome, cpf, cidade_id) values ('Manoel', '11111111111', 1);
+-- CPFs válidos gerados em https://www.4devs.com.br/gerador_de_cpf
+insert into cliente(nome, cpf, cidade_id) values ('Manoel Campos', '33184755053', 4);
+insert into cliente(nome, cpf, cidade_id) values ('João Pedro', '28327907042', 1);
+insert into cliente(nome, cpf, cidade_id) values ('Ana Paula Maria', '02894896018', 2);
+insert into cliente(nome, cpf, cidade_id) values ('Maria Francisca', '63512889085', 6);
+insert into cliente(nome, cpf, cidade_id) values ('Pedro Miguel', '94407622091', 6);
+insert into cliente(nome, cpf, cidade_id) values ('Paula Gomes', '79538783050', 3);
+insert into cliente(nome, cpf, cidade_id) values ('Helena Silva', '32253097020', 4);
+insert into cliente(nome, cpf, cidade_id) values ('Marta Silva', '26341362005', 1);
+
 
 insert into produto(descricao, preco, estoque) values ('Notebook', 5.00, 2);
 insert into produto(descricao, preco, estoque) values ('TV', 1500.00, 0);
