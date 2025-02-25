@@ -61,15 +61,18 @@ insert into cliente(nome, cpf, cidade_id) values ('João Pedro', '28327907042', 
 insert into cliente(nome, cpf, cidade_id) values ('Ana Paula Maria', '02894896018', 2);
 insert into cliente(nome, cpf, cidade_id) values ('Maria Francisca', '63512889085', 6);
 insert into cliente(nome, cpf, cidade_id) values ('Pedro Miguel', '94407622091', 6);
+insert into cliente(nome, cpf, cidade_id) values ('Pedro Artur', '33660586099', 6);
 insert into cliente(nome, cpf, cidade_id) values ('Paula Gomes', '79538783050', 3);
 insert into cliente(nome, cpf, cidade_id) values ('Helena Silva', '32253097020', 4);
 insert into cliente(nome, cpf, cidade_id) values ('Marta Silva', '26341362005', 1);
 
 insert into produto(descricao, preco, estoque) values ('Notebook', 5.00, 2);
-insert into produto(descricao, preco, estoque) values ('TV', 1500.00, 0);
+insert into produto(descricao, preco, estoque) values ('TV', 1500.00, 10);
 insert into produto(descricao, preco, estoque) values ('iPhone', 4000.00, 100);
 insert into produto(descricao, preco, estoque) values ('Teclado', 200.00, 50);
-insert into produto(descricao, preco, estoque) values ('Mouse', 150.00, 80);
+
+-- Produto sem estoque
+insert into produto(descricao, preco, estoque) values ('Mouse', 150.00, 0);
 
 insert into venda (cliente_id, data_hora) values (1, '2025-02-23');
     insert into item_venda (venda_id, produto_id, quant) values (1, 1, 2);
@@ -82,3 +85,7 @@ insert into venda (cliente_id, data_hora) values (1, '2024-10-30');
 
 insert into venda (cliente_id, data_hora) values (3, '2025-01-12');
     insert into item_venda (venda_id, produto_id, quant) values (3, 4, 1);
+
+-- Venda para produto sem estoque, para simular que a venda foi realizada antes e agora não tem mais estoque
+insert into venda (cliente_id, data_hora) values (2, '2025-02-24');
+    insert into item_venda (venda_id, produto_id, quant) values (4, 5, 4);
