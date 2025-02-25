@@ -1,12 +1,12 @@
 package io.github.manoelcampos.vendas.api.feature.estado;
 
-import io.github.manoelcampos.vendas.api.api.AbstractApiTest;
+import io.github.manoelcampos.vendas.api.controller.AbstractControllerTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class EstadoControllerTest extends AbstractApiTest {
+class EstadoControllerTest extends AbstractControllerTest {
     @Test
     void findById() {
         final var estadoEsperado = new Estado(1);
