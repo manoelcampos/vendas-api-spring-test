@@ -3,6 +3,8 @@ package io.github.manoelcampos.vendas.api.shared.util;
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.text.WordUtils;
 
+import java.util.Objects;
+
 /**
  * @author Manoel Campos
  */
@@ -46,5 +48,13 @@ public final class StringUtil {
      */
     public static String camelCaseToSpace(final String text) {
         return RegExUtils.replacePattern(text, "(?<!^)([A-Z])", " $1").toLowerCase();
+    }
+
+    /**
+     * {@return a String passada contendo apenas caracteres numéricos}
+     * @param value valor para remover caracteres não numéricos
+     */
+    public static String onlyNumbers(final String value) {
+        return Objects.requireNonNullElse(value, "").replaceAll("\\D", "");
     }
 }
