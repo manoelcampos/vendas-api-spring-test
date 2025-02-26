@@ -130,19 +130,37 @@
                     </excludes>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
 
-    <reporting>
-        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.11.2</version>
                 <configuration>
                     <failOnError>false</failOnError>
+                    <doclint>none</doclint>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>xml-doclet</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                        <configuration>
+                            <useStandardDocletOptions>false</useStandardDocletOptions>
+                            <doclet>com.manticore.tools.xmldoclet.XmlDoclet</doclet>
+                            <additionalOptions>-d ${project.build.directory}</additionalOptions>
+                            <docletArtifact>
+                                <groupId>com.manticore-projects.tools</groupId>
+                                <artifactId>xml-doclet</artifactId>
+                                <version>2.0.1</version>
+                                <!-- Uses the Uber jar that has all dependencies -->
+                                <classifier>all</classifier>
+                            </docletArtifact>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
-    </reporting>
+    </build>
 </project>
