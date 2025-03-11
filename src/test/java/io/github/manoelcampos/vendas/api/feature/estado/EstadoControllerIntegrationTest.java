@@ -1,6 +1,6 @@
 package io.github.manoelcampos.vendas.api.feature.estado;
 
-import io.github.manoelcampos.vendas.api.controller.AbstractControllerTest;
+import io.github.manoelcampos.vendas.api.controller.AbstractControllerIntegrationTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Testes de integração para a API REST de {@link Estado} implementada pelo {@link EstadoController}.
  * @author Manoel Campos
  */
-class EstadoControllerTest extends AbstractControllerTest {
+class EstadoControllerIntegrationTest extends AbstractControllerIntegrationTest {
     @Test
     void findById() {
         final var estadoEsperado = new Estado(1);

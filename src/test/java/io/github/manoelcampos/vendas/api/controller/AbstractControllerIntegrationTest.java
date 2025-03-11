@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Getter @Accessors(fluent = true)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public abstract class AbstractControllerTest {
+public abstract class AbstractControllerIntegrationTest {
     @Autowired
     private WebTestClient client;
 

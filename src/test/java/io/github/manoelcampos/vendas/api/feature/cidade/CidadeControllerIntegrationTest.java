@@ -1,6 +1,6 @@
 package io.github.manoelcampos.vendas.api.feature.cidade;
 
-import io.github.manoelcampos.vendas.api.controller.AbstractControllerTest;
+import io.github.manoelcampos.vendas.api.controller.AbstractControllerIntegrationTest;
 import io.github.manoelcampos.vendas.api.feature.estado.Estado;
 import io.github.manoelcampos.vendas.api.shared.util.PathUtil;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Testes de integração para a API REST de {@link Cidade} implementada pelo {@link CidadeController}.
  * @author Manoel Campos
  */
-class CidadeControllerTest extends AbstractControllerTest {
+class CidadeControllerIntegrationTest extends AbstractControllerIntegrationTest {
     private static final String RELATIVE_URL = "/cidade";
     private static final String BY_ID_URL = PathUtil.concat(RELATIVE_URL, "/{id}");
 
