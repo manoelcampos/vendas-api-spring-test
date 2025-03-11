@@ -31,6 +31,12 @@ public class Cidade extends AbstractBaseModel {
     }
 
     public Cidade(final String descricao) {
-        this.setDescricao(descricao);
+        this(null, descricao);
     }
+
+    public Cidade(final Long id, final String descricao) {
+        this.setDescricao(descricao);
+        this.setId(id);
+    }
+
 }

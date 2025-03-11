@@ -20,7 +20,7 @@ class CidadeControllerIntegrationTest extends AbstractControllerIntegrationTest 
     @Test
     void findById() {
         final long id = 1;
-        final var cidade = new Cidade(id).setDescricao("Cidade 1");
+        final var cidade = new Cidade(id, "Cidade 1");
         client().get()
                 .uri(BY_ID_URL, id)
                 .exchange()
