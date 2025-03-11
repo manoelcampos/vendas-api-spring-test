@@ -1,7 +1,7 @@
 package io.github.manoelcampos.vendas.api.feature.venda;
 
+import io.github.manoelcampos.vendas.api.feature.AbstractServiceTest;
 import io.github.manoelcampos.vendas.api.feature.cliente.Cliente;
-import io.github.manoelcampos.vendas.api.feature.produto.AbstractServiceTest;
 import io.github.manoelcampos.vendas.api.feature.produto.Produto;
 import io.github.manoelcampos.vendas.api.feature.produto.ProdutoRepository;
 import org.junit.jupiter.api.Test;
