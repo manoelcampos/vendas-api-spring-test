@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * Testes para a API REST de {@link Cidade} implementada pelo {@link CidadeController}.
+ * Testes de integração para a API REST de {@link Cidade} implementada pelo {@link CidadeController}.
  * @author Manoel Campos
  */
 class CidadeControllerTest extends AbstractControllerTest {

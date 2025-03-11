@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * Testes de integração para a API REST de {@link Estado} implementada pelo {@link EstadoController}.
+ * @author Manoel Campos
+ */
 class EstadoControllerTest extends AbstractControllerTest {
     @Test
     void findById() {
