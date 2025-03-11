@@ -20,6 +20,6 @@ RUN mvn -Dmaven.repo.local=$MAVEN_REPO package -DskipTests
 FROM amazoncorretto:21-alpine
 WORKDIR $WORKDIR
 RUN apk add curl
-COPY --from=build /api/target/vendas-api-*.jar "./vendas-api.java"
+COPY --from=build /api/target/vendas-api-*.jar "./vendas-api.jar"
 EXPOSE 8080
-CMD [ "java", "-jar", "vendas-api.java" ]
+CMD [ "java", "-jar", "vendas-api.jar" ]
