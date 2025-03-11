@@ -1,4 +1,4 @@
-package io.github.manoelcampos.vendas.api.feature.produto;
+package io.github.manoelcampos.vendas.api.feature;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;

@@ -1,5 +1,6 @@
 package io.github.manoelcampos.vendas.api.feature.produto;
 
+import io.github.manoelcampos.vendas.api.feature.AbstractServiceTest;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
