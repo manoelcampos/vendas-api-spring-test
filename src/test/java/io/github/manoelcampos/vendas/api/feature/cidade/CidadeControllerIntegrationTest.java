@@ -20,13 +20,13 @@ class CidadeControllerIntegrationTest extends AbstractControllerIntegrationTest 
     @Test
     void findById() {
         final long id = 1;
-        final var distrito = new Cidade(id).setDescricao("Cidade 1");
+        final var cidade = new Cidade(id).setDescricao("Cidade 1");
         client().get()
                 .uri(BY_ID_URL, id)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(Cidade.class)
-                .isEqualTo(distrito);
+                .isEqualTo(cidade);
     }
 
     @Test
