@@ -34,15 +34,17 @@ public abstract class AbstractControllerTest {
         }
     }
 
-    /**
-     * Objeto que simula o envio de requisições HTTP para o controller
-     * que atende requisições numa determinada URL requisitada
-     * por meio do método {@link MockMvc#perform(RequestBuilder)}.
-     * Assim, o controller estará sendo testado enviando-se requisições
-     * seguindo o formato do protocolo HTTP, mas nenhuma comunicação de rede estará realmente
-     * sendo feita. Todas as requisições serão processadas internamente pela aplicação
-     * para um objeto controller instanciado automaticamente.
-     */
+    /// Objeto que simula o envio de requisições HTTP para o controller
+    /// que atende requisições numa determinada URL requisitada
+    /// por meio do método [MockMvc#perform(RequestBuilder)].
+    /// Assim, o controller estará sendo testado enviando-se requisições
+    /// seguindo o formato do protocolo HTTP, mas nenhuma comunicação de rede estará realmente
+    /// sendo feita. Todas as requisições serão processadas internamente pela aplicação
+    /// para um objeto controller instanciado automaticamente.
+    ///
+    /// Apesar do nome, o objeto não serve apenas para testar controllers
+    /// do tipo [Spring MVC](https://spring.io/guides/gs/serving-web-content) anotados com `@Controller`
+    /// (usados por exemplo com Thymeleaf), mas também para controllers REST anotados com `@RestController`.
     protected MockMvc mockMvc() {
         return mockMvc;
     }
