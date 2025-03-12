@@ -11,9 +11,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Testes de integração para a API REST de {@link Cidade} implementada pelo {@link CidadeController}.
+ * A classe de teste tem o sufixo "IT" para permitir separar a execução de testes unitários
+ * dos testes de integração.
+ * Para rodar somente os testes de integração, execute no terminal: ./mvnw failsafe:integration-test.
  * @author Manoel Campos
  */
-class CidadeControllerIntegrationTest extends AbstractControllerIntegrationTest {
+class CidadeControllerIT extends AbstractControllerIntegrationTest {
     private static final String RELATIVE_URL = "/cidade";
     private static final String BY_ID_URL = PathUtil.concat(RELATIVE_URL, "/{id}");
 

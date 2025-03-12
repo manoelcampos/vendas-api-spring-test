@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Testes para a API REST de {@link Cidade} implementada pelo {@link CidadeController}.
  * A classe testa apenas os métodos do controller, ignorando a camada de serviço (para a qual um mock é criado).
- * Ela é diferente de {@link CidadeControllerIntegrationTest} que implementa testes de integração.
+ * Ela é diferente de {@link CidadeControllerIT} que implementa testes de integração.
  * Logo, não usa mocks e testa todas as camadas da aplicação funcionando de forma integrada.
  *
  * <p>Os nomes dos testes incluem o sufixo "test" para evitar conflito
