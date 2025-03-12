@@ -39,4 +39,14 @@ public class Cidade extends AbstractBaseModel {
         this.setId(id);
     }
 
+    /**
+     * Copy constructor que cria uma cidade a partir de dados de outra.
+     * @param id id da nova cidade
+     * @param outra outra cidade para copiar os dados (exceto o id)
+     */
+    public Cidade(final long id, final Cidade outra) {
+        this.setId(id);
+        this.setDescricao(outra.descricao);
+        this.setEstado(outra.estado);
+    }
 }
