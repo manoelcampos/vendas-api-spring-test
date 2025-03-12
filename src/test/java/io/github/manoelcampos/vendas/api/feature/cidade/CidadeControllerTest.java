@@ -17,26 +17,27 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Testes para a API REST de {@link Cidade} implementada pelo {@link CidadeController}.
- * A classe testa apenas os métodos do controller, ignorando a camada de serviço (para a qual um mock é criado).
- * Ela é diferente de {@link CidadeControllerIT} que implementa testes de integração.
- * Logo, não usa mocks e testa todas as camadas da aplicação funcionando de forma integrada.
- *
- * <p>Os nomes dos testes incluem o sufixo "test" para evitar conflito
- * com métodos de mesmo nome na classe {@link MockMvcResultMatchers}.</p>
- *
- * <p>Pode-se usar a anotação {@code @SpringBootTest} (sem indicar a propriedade webEnvironment para iniciar
- * um servidor HTTP real em uma porta específica) no lugar de {@link WebMvcTest}.
- * Neste caso, como não é criado um servidor real,
- * temos que usar um objeto {@link MockMvc} da mesma forma,
- * para simular as requisições HTTP.
- * No entanto, a anotação {@code @SpringBootTest} não configura
- * o {@link MockMvc}, exigindo a adição da anotação {@code @AutoConfigureMockMvc}.</p>
- *
- * <p>Portanto, é muito mais fácil usar {@link WebMvcTest} no lugar, já recebendo tudo pré-configurado.</p>
- * @author Manoel Campos
- */
+/// Testes para a API REST de [Cidade] implementada pelo [CidadeController].
+/// A classe testa apenas os métodos do controller, ignorando a camada de serviço (para a qual um mock é criado).
+/// Ela é diferente de [CidadeControllerIT] que implementa testes de integração.
+/// Logo, não usa mocks e testa todas as camadas da aplicação funcionando de forma integrada.
+///
+/// Os nomes dos testes incluem o sufixo "test" para evitar conflito
+/// com métodos de mesmo nome na classe [MockMvcResultMatchers].
+///
+/// Pode-se usar a anotação `@SpringBootTest` (sem indicar a propriedade webEnvironment para iniciar
+/// um servidor HTTP real em uma porta específica) no lugar de [WebMvcTest].
+/// Neste caso, como não é criado um servidor real,
+/// temos que usar um objeto [MockMvc] da mesma forma,
+/// para simular as requisições HTTP.
+/// No entanto, a anotação `@SpringBootTest` não configura
+/// o [MockMvc], exigindo a adição da anotação `@AutoConfigureMockMvc`.
+///
+/// Portanto, é muito mais fácil usar [WebMvcTest] no lugar, já recebendo tudo pré-configurado
+/// e ainda garantindo que apenas os objetos necessários para testar o controller
+/// específico serão criados.
+/// @author Manoel Campos
+/// @link <https://spring.io/guides/gs/testing-web>
 @WebMvcTest(CidadeController.class)
 class CidadeControllerTest extends AbstractControllerTest {
     private static final String RELATIVE_URL = "/cidade";
