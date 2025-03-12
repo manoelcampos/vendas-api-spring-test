@@ -36,7 +36,7 @@ class CidadeControllerTest extends AbstractControllerTest {
      * da instância da classe controller (indicada a anotação {@link WebMvcTest} acima)
      * que é criada internamente pelo Spring para receber as requisições HTTP enviadas nos testes.
      */
-    @MockitoBean
+    @MockitoBean // Substitui a anotação obsoleta @MockBean
     private CidadeService service;
 
     @Test
