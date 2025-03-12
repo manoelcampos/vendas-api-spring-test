@@ -1,6 +1,7 @@
 package io.github.manoelcampos.vendas.api.feature.cliente;
 
 import io.github.manoelcampos.vendas.api.shared.controller.AbstractController;
+import io.github.manoelcampos.vendas.api.shared.validator.CustomValidator;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController extends AbstractController<Cliente, ClienteRepository, ClienteService> {
-    public ClienteController() {
-        super();
+    public ClienteController(final ClienteService service, final CustomValidator<Cliente> validator) {
+        super(service, validator);
     }
 
     /**

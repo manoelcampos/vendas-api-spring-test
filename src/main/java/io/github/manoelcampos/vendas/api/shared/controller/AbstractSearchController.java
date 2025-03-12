@@ -1,11 +1,11 @@
 package io.github.manoelcampos.vendas.api.shared.controller;
 
-import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import io.github.manoelcampos.vendas.api.shared.service.AbstractCrudService;
 import io.github.manoelcampos.vendas.api.shared.util.PathUtil;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.NonNull;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -29,10 +29,11 @@ public class AbstractSearchController<T extends AbstractBaseModel, R extends Ent
      */
     protected final String basePath;
 
-    @Autowired @Getter
-    private S service;
+    @Getter
+    private final S service;
 
-    public AbstractSearchController() {
+    public AbstractSearchController(@NonNull final S service) {
+        this.service = service;
         this.basePath = findBasePath();
     }
 

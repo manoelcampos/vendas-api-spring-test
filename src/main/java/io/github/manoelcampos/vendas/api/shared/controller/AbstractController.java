@@ -1,14 +1,14 @@
 package io.github.manoelcampos.vendas.api.shared.controller;
 
-import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import io.github.manoelcampos.vendas.api.shared.service.AbstractCrudService;
 import io.github.manoelcampos.vendas.api.shared.validator.CustomValidator;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
@@ -41,10 +41,11 @@ public abstract class AbstractController<T extends AbstractBaseModel, R extends 
      * realizar validações customizadas para a entidade.
      * Se nenhuma classe validator para a entidade for definida, uma instância de {@link CustomValidator} é usada.
      */
-    @Autowired
-    private CustomValidator<T> validator;
+    private final CustomValidator<T> validator;
 
-    public AbstractController() {
+    public AbstractController(final S service, @NonNull final CustomValidator<T> validator) {
+        super(service);
+        this.validator = validator;
     }
 
     @DeleteMapping("{id}")
