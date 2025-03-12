@@ -8,6 +8,7 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Optional;
@@ -24,6 +25,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * <p>Os nomes dos testes incluem o sufixo "test" para evitar conflito
  * com métodos de mesmo nome na classe {@link MockMvcResultMatchers}.</p>
+ *
+ * <p>Pode-se usar a anotação {@code @SpringBootTest} (sem indicar a propriedade webEnvironment para iniciar
+ * um servidor HTTP real em uma porta específica) no lugar de {@link WebMvcTest}.
+ * Neste caso, como não é criado um servidor real,
+ * temos que usar um objeto {@link MockMvc} da mesma forma,
+ * para simular as requisições HTTP.
+ * No entanto, a anotação {@code @SpringBootTest} não configura
+ * o {@link MockMvc}, exigindo a adição da anotação {@code @AutoConfigureMockMvc}.</p>
+ *
+ * <p>Portanto, é muito mais fácil usar {@link WebMvcTest} no lugar, já recebendo tudo pré-configurado.</p>
  * @author Manoel Campos
  */
 @WebMvcTest(CidadeController.class)
