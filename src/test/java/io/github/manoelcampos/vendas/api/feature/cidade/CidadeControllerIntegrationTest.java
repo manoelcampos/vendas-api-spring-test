@@ -1,6 +1,6 @@
 package io.github.manoelcampos.vendas.api.feature.cidade;
 
-import io.github.manoelcampos.vendas.api.controller.AbstractControllerIntegrationTest;
+import io.github.manoelcampos.vendas.api.feature.AbstractControllerIntegrationTest;
 import io.github.manoelcampos.vendas.api.feature.estado.Estado;
 import io.github.manoelcampos.vendas.api.shared.util.PathUtil;
 import org.junit.jupiter.api.Test;

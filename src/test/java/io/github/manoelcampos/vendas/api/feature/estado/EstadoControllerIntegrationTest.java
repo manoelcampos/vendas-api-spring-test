@@ -1,6 +1,6 @@
 package io.github.manoelcampos.vendas.api.feature.estado;
 
-import io.github.manoelcampos.vendas.api.controller.AbstractControllerIntegrationTest;
+import io.github.manoelcampos.vendas.api.feature.AbstractControllerIntegrationTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
