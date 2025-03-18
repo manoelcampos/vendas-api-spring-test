@@ -4,8 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.assertj.MockMvcTester;
 
 import java.io.UncheckedIOException;
 
@@ -16,9 +18,9 @@ import java.io.UncheckedIOException;
  * @see AbstractControllerIntegrationTest
  */
 public abstract class AbstractControllerTest {
-    /** @see #mockMvc() */
+    /** @see #mockMvcTester() */
     @Autowired
-    private MockMvc mockMvc;
+    private MockMvcTester mockMvcTester;
 
     /**
      * Converte um objeto Java para sua representação em JSON.
@@ -42,10 +44,17 @@ public abstract class AbstractControllerTest {
     /// sendo feita. Todas as requisições serão processadas internamente pela aplicação
     /// para um objeto controller instanciado automaticamente.
     ///
+    /// A classe [MockMvcTester] substitui a antiga [MockMvc].
+    /// Ela facilita a escrita de testes para controllers Spring,
+    /// possuindo uma API fluente como do {@link WebTestClient}
+    /// (usado para testes de integração reativos) e facilita
+    /// descobrir como usar tal API, pois não é preciso ficar fazendo imports
+    /// diferentes para cada etapa do processo.
+    ///
     /// Apesar do nome, o objeto não serve apenas para testar controllers
     /// do tipo [Spring MVC](https://spring.io/guides/gs/serving-web-content) anotados com `@Controller`
     /// (usados por exemplo com Thymeleaf), mas também para controllers REST anotados com `@RestController`.
-    protected MockMvc mockMvc() {
-        return mockMvc;
+    protected MockMvcTester mockMvcTester() {
+        return mockMvcTester;
     }
 }
