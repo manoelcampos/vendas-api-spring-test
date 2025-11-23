@@ -74,18 +74,18 @@ insert into produto(descricao, preco, estoque) values ('Teclado', 200.00, 50);
 -- Produto sem estoque
 insert into produto(descricao, preco, estoque) values ('Mouse', 150.00, 0);
 
-insert into venda (cliente_id, data_hora) values (1, '2025-02-23');
+insert into venda (cliente_id, data_hora, status) values (1, '2025-02-23', 'ENTREGUE');
     insert into item_venda (venda_id, produto_id, quant) values (1, 1, 2);
     insert into item_venda (venda_id, produto_id, quant) values (1, 3, 4);
     insert into item_venda (venda_id, produto_id, quant) values (1, 4, 1);
 
-insert into venda (cliente_id, data_hora) values (1, '2024-10-30');
+insert into venda (cliente_id, data_hora, status) values (1, '2024-10-30', 'REGISTRADA');
     insert into item_venda (venda_id, produto_id, quant) values (2, 2, 2);
     insert into item_venda (venda_id, produto_id, quant) values (2, 5, 1);
 
-insert into venda (cliente_id, data_hora) values (3, '2025-01-12');
+insert into venda (cliente_id, data_hora, status) values (3, '2025-01-12', 'PAGA');
     insert into item_venda (venda_id, produto_id, quant) values (3, 4, 1);
 
 -- Venda para produto sem estoque, para simular que a venda foi realizada antes e agora não tem mais estoque
-insert into venda (cliente_id, data_hora) values (2, '2025-02-24');
+insert into venda (cliente_id, data_hora, status) values (2, '2025-02-24', 'ENVIADA');
     insert into item_venda (venda_id, produto_id, quant) values (4, 5, 4);

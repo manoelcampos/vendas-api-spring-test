@@ -14,8 +14,8 @@ import org.springframework.web.context.annotation.RequestScope;
 @SpringBootApplication
 @OpenAPIDefinition(
     info = @Info(
-            title = "Vendas REST API",
-            version = "0.0.1")
+            title = "E-Commerce REST API",
+            version = "1.0.0")
 )
 public class VendasApiApplication {
     public static void main(String[] args) {

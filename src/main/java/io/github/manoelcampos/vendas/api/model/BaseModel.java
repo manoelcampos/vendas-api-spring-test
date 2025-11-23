@@ -24,4 +24,7 @@ public interface BaseModel extends Serializable {
     default boolean isInserting(){
         return getId() == null || getId() == 0;
     }
+
+    @JsonIgnore
+    default boolean hasId(){ return getId() == null; }
 }
