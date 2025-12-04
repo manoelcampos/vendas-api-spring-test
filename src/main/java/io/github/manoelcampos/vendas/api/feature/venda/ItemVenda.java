@@ -3,7 +3,7 @@ package io.github.manoelcampos.vendas.api.feature.venda;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.github.manoelcampos.vendas.api.config.ConstraintKeys;
 import io.github.manoelcampos.vendas.api.feature.produto.Produto;
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

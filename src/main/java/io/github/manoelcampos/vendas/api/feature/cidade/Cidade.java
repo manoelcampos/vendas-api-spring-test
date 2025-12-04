@@ -3,7 +3,7 @@ package io.github.manoelcampos.vendas.api.feature.cidade;
 
 import io.github.manoelcampos.vendas.api.config.ConstraintKeys;
 import io.github.manoelcampos.vendas.api.feature.estado.Estado;
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

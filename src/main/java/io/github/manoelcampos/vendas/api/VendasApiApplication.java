@@ -1,6 +1,6 @@
 package io.github.manoelcampos.vendas.api;
 
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.validator.CustomValidator;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;

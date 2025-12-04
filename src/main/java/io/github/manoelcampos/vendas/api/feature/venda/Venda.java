@@ -1,7 +1,8 @@
 package io.github.manoelcampos.vendas.api.feature.venda;
 
 import io.github.manoelcampos.vendas.api.feature.cliente.Cliente;
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.feature.cliente.Endereco;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -30,8 +31,11 @@ public class Venda extends AbstractBaseModel {
     @Column(nullable = false)
     private LocalDateTime dataHora = LocalDateTime.now();
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) @NotNull
     private Status status;
+
+    @Embedded
+    private Endereco enderecoEntregua;
 
     @OneToMany(mappedBy = "venda")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)

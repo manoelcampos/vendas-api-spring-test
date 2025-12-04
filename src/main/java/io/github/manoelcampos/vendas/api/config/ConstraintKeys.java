@@ -1,8 +1,8 @@
 package io.github.manoelcampos.vendas.api.config;
 
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.controller.AbstractController;
 import io.github.manoelcampos.vendas.api.shared.controller.RestExceptionHandler;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.util.ConstraintViolation;
 import jakarta.persistence.Entity;
 

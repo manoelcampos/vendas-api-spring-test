@@ -1,7 +1,7 @@
 package io.github.manoelcampos.vendas.api.shared.controller;
 
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.EntityRepository;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.service.AbstractCrudService;
 import io.github.manoelcampos.vendas.api.shared.validator.CustomValidator;
 import jakarta.transaction.Transactional;
@@ -50,7 +50,7 @@ public abstract class AbstractController<T extends AbstractBaseModel, R extends 
 
     @DeleteMapping("{id}")
     @Transactional
-    public ResponseEntity<T> delete(@Valid @PathVariable final long id) {
+    public ResponseEntity<T> delete(@PathVariable final long id) {
         if (getService().deleteById(id))
             return ResponseEntity.noContent().build();
 
@@ -58,7 +58,7 @@ public abstract class AbstractController<T extends AbstractBaseModel, R extends 
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<T> findById(@Valid @PathVariable final long id) {
+    public ResponseEntity<T> findById(@PathVariable final long id) {
         return getService().findById(id)
                       .map(ResponseEntity::ok)
                       .orElseThrow(() -> newNotFoundException(id));

@@ -1,7 +1,7 @@
 package io.github.manoelcampos.vendas.api.shared.controller;
 
 import io.github.manoelcampos.vendas.api.shared.exception.HttpError;
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.util.ConstraintViolation;
 import jakarta.validation.Valid;
 import lombok.NonNull;

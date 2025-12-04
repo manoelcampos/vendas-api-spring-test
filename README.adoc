@@ -21,3 +21,9 @@ Este arquivo não entra no controle de versão e deve incluir as configurações
 == Executando o projeto em ambiente dev
 
 Você pode executar a classe `VendasApiApplication` no seu IDE ou digitar `mvn spring-boot:run` em um terminal. Após iniciar, basta acessar http://localhost:8080
+
+== Links
+
+- https://medium.com/react-weekly/feature-oriented-architecture-for-web-applications-2b48e358afb0
+- https://www.httpstatus.com.br
+- https://http.cat

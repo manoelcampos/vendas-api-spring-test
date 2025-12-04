@@ -61,7 +61,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- OpenAPI (Swagger) libs -->
+        <!-- OpenAPI (Swagger) libs: https://springdoc.org -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-common</artifactId>

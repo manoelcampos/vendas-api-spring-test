@@ -2,7 +2,7 @@ package io.github.manoelcampos.vendas.api.shared.service;
 
 import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import io.github.manoelcampos.vendas.api.shared.controller.AbstractController;
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

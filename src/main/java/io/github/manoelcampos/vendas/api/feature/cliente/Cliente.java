@@ -2,7 +2,7 @@ package io.github.manoelcampos.vendas.api.feature.cliente;
 
 import io.github.manoelcampos.vendas.api.config.ConstraintKeys;
 import io.github.manoelcampos.vendas.api.feature.cidade.Cidade;
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.JoinColumn;

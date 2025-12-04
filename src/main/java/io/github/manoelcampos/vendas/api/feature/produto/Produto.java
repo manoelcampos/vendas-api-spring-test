@@ -1,6 +1,7 @@
 package io.github.manoelcampos.vendas.api.feature.produto;
 
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
@@ -16,7 +17,7 @@ import lombok.Setter;
  */
 @Entity @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Produto extends AbstractBaseModel {
-    @NotNull @NotBlank
+    @NotNull @NotBlank @Column(unique = true)
     private String descricao;
 
     @NotNull @DecimalMin("0.1")

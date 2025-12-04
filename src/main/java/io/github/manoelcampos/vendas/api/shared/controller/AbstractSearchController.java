@@ -1,7 +1,7 @@
 package io.github.manoelcampos.vendas.api.shared.controller;
 
-import io.github.manoelcampos.vendas.api.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.EntityRepository;
+import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.service.AbstractCrudService;
 import io.github.manoelcampos.vendas.api.shared.util.PathUtil;
 import lombok.Getter;
