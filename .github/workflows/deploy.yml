@@ -10,7 +10,7 @@ jobs:
     needs: [ build ] # exige que o build passe para fazer o deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy -c fly.toml --remote-only --vm-size shared-cpu-1x
         env:
