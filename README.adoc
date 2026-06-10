@@ -2,7 +2,8 @@
 
 = Vendas REST API (Backend)
 
-Backend em Java 21 com SpringBoot 3, fornecendo uma API REST.
+Backend em Java 25 com Spring Boot 4, fornecendo uma API REST para podermos implementar testes.
+Mostra algumas mudanças em relação à testes do Spring Boot 3 para 4.
 
 == Configurar Ambiente de Desenvolvimento
 
