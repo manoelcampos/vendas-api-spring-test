@@ -7,7 +7,7 @@ import io.github.manoelcampos.vendas.api.shared.util.ConstraintViolation;
 import jakarta.persistence.Entity;
 
 /**
- * Define nomes de unique contraints (UCs) para {@link Entity}s no banco.
+ * Define nomes de unique constraints (UCs) para {@link Entity}s no banco.
  * Quando uma dessas constraints é violada e uma exceção é gerada,
  * o {@link RestExceptionHandler} verifica
  * se o nome da constraint estava contido na mensagem de erro,
@@ -16,10 +16,10 @@ import jakarta.persistence.Entity;
  * <p>O nome de cada UC deve seguir o padrão UC_NOME_TABELA_ORIGEM__CAMPO1__CAMPO2__CAMPO_N___.
  * Os nomes usados podem ser como desejar e tais nomes são formatados
  * para serem exibidos na mensagem de erro pro front.
- * O __ separa a tabela e cada um dos campos no nome da constaint.
+ * O __ separa a tabela e cada um dos campos no nome da constraint.
  * E um ___ no final é usado para indicar onde o nome original da constraint acaba,
  * pois alguns bancos como o PostgreSQL adicional um sufixo para o nome destas constraints,
- * que não deve aparecer nas mensagems pro usuário.
+ * que não deve aparecer nas mensagens pro usuário.
  * Tal formato é definido em {@link ConstraintViolation#UC_FORMAT_REGEX}.
  * </p>
  *
