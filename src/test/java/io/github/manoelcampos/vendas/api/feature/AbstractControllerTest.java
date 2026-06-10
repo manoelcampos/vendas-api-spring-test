@@ -1,15 +1,12 @@
 package io.github.manoelcampos.vendas.api.feature;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
-
-import java.io.UncheckedIOException;
+import tools.jackson.databind.json.JsonMapper;
 
 /**
  * Classe abstrata para implementar testes exclusivos para a camada de controller, realizando mock da camada service.
@@ -27,13 +24,8 @@ public abstract class AbstractControllerTest {
      * @param object objeto a ser convertido
      * @return String com a representação em JSON do objeto Java
      */
-    protected String objectToJson(final Object object)  {
-        final var writer = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        try {
-            return writer.writeValueAsString(object);
-        } catch (final JsonProcessingException e) {
-            throw new UncheckedIOException(e);
-        }
+    protected String objectToJson(final Object object) {
+        return JsonMapper.builder().build().writer().withDefaultPrettyPrinter().writeValueAsString(object);
     }
 
     /// Objeto que simula o envio de requisições HTTP para o controller

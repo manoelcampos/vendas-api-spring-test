@@ -1,7 +1,7 @@
 package io.github.manoelcampos.vendas.api.repository;
 
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
+import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
 
 /** Classe base para a implementação de testes de integração dos {@link org.springframework.stereotype.Repository}
  * AVISO: As subclasses não devem ser final. Incluindo final é gerado um warning.

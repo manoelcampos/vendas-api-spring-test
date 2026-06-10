@@ -1,7 +1,7 @@
 package io.github.manoelcampos.vendas.api.feature;
 
 import io.github.manoelcampos.vendas.api.shared.util.ConstraintViolation;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

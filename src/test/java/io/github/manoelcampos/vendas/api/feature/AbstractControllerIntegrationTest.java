@@ -5,6 +5,7 @@ import lombok.experimental.Accessors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTestClient;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 /// Classe abstrata para a criação de testes de integração de APIs REST,
@@ -18,6 +19,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 /// @see AbstractControllerTest
 @Getter @Accessors(fluent = true)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureWebTestClient
 public abstract class AbstractControllerIntegrationTest {
     @Autowired
     private WebTestClient client;
