@@ -37,8 +37,7 @@ public class Venda extends AbstractBaseModel {
     @Embedded
     private Endereco enderecoEntregua;
 
-    @OneToMany(mappedBy = "venda")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL)
     private List<ItemVenda> itens = new ArrayList<>();
 
     public Venda(final long id) {
