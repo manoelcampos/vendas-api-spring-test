@@ -25,6 +25,5 @@ Você pode executar a classe `VendasApiApplication` no seu IDE ou digitar `mvn s
 
 == Links
 
-- https://medium.com/react-weekly/feature-oriented-architecture-for-web-applications-2b48e358afb0
-- https://www.httpstatus.com.br
-- https://http.cat
+- https://medium.com/react-weekly/feature-oriented-architecture-for-web-applications-2b48e358afb0[Feature Oriented Architecture for Web Applications]
+- https://http.cat[http.cat]
