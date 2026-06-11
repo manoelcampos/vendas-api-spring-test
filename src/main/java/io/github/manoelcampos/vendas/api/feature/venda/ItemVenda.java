@@ -7,12 +7,11 @@ import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
 
 /**
  * @author Manoel Campos
  */
-@Entity @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Entity
 public class ItemVenda extends AbstractBaseModel {
     @NotNull @ManyToOne @JsonIgnore
     @JoinColumn(foreignKey = @ForeignKey(name = ConstraintKeys.FK_ITEM_VENDA__VENDA))
@@ -37,6 +36,15 @@ public class ItemVenda extends AbstractBaseModel {
     @NotNull @Min(1) @Column(updatable = false)
     private int quant;
 
+    public ItemVenda() {
+    }
+
+    public ItemVenda(final Venda venda, final Produto produto, final int quant) {
+        setVenda(venda);
+        setProduto(produto);
+        setQuant(quant);
+    }
+
     public ItemVenda(final long id) {
         this.setId(id);
     }
@@ -48,5 +56,34 @@ public class ItemVenda extends AbstractBaseModel {
 
     public ItemVenda(final Produto produto) {
         setProduto(produto);
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(final Venda venda) {
+        this.venda = venda;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(final Produto produto) {
+        this.produto = produto;
+    }
+
+    public int getQuant() {
+        return quant;
+    }
+
+    public void setQuant(final int quant) {
+        this.quant = quant;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemVenda(venda=%s, produto=%s, quant=%d)".formatted(venda, produto, quant);
     }
 }

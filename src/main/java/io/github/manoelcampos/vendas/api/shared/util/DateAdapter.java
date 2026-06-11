@@ -1,12 +1,10 @@
 package io.github.manoelcampos.vendas.api.shared.util;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NonNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 /**
  * Adapter contendo funções utilitárias para manipulação de datas,
@@ -15,11 +13,19 @@ import java.time.format.DateTimeFormatter;
  * verificações evitando {@link NullPointerException}.
  * @author Manoel Campos
  */
-@Getter @AllArgsConstructor
 public class DateAdapter {
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     @Nullable
     private final LocalDate date;
+
+    public DateAdapter(@Nullable final LocalDate date) {
+        this.date = date;
+    }
+
+    public @Nullable LocalDate getDate() {
+        return date;
+    }
 
     public static String format(final LocalDate fimVigenciaAdicional) {
         return DATE_FORMATTER.format(fimVigenciaAdicional);
@@ -35,7 +41,8 @@ public class DateAdapter {
     /**
      * Verifica se a {@link #getDate() data} armazenada é igual ou posterior a uma outra data.
      */
-    public boolean isEqualOrAfter(@NonNull final LocalDate other) {
+    public boolean isEqualOrAfter(final LocalDate other) {
+        Objects.requireNonNull(other, "other não pode ser nulo");
         final var dayBeforeThis = this.date == null ? LocalDate.MIN : this.date.minusDays(1);
         return dayBeforeThis.isAfter(other);
     }
@@ -43,7 +50,8 @@ public class DateAdapter {
     /**
      * Verifica se a {@link #getDate() data} armazenada é posterior de uma outra data.
      */
-    public boolean isAfter(@NonNull final LocalDate other) {
+    public boolean isAfter(final LocalDate other) {
+        Objects.requireNonNull(other, "other não pode ser nulo");
         final var thisDate = this.date == null ? LocalDate.MIN : this.date;
         return thisDate.isAfter(other);
     }
@@ -58,7 +66,8 @@ public class DateAdapter {
     /**
      * Verifica se a {@link #getDate() data} armazenada é igual ou anterior a uma outra data.
      */
-    public boolean isEqualOrBefore(@NonNull final LocalDate other) {
+    public boolean isEqualOrBefore(final LocalDate other) {
+        Objects.requireNonNull(other, "other não pode ser nulo");
         final var dayAfterThis = this.date == null ? LocalDate.MAX : this.date.plusDays(1);
         return dayAfterThis.isBefore(other);
     }

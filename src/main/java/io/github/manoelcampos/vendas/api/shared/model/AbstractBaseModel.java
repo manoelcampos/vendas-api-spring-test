@@ -1,15 +1,14 @@
 package io.github.manoelcampos.vendas.api.shared.model;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
 
 /**
  * @author Manoel Campos
  */
-@MappedSuperclass @Getter @Setter @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@MappedSuperclass
 public abstract class AbstractBaseModel implements BaseModel {
     /**
      * Identificador único do objeto, gerado pelo banco de dados.
@@ -20,8 +19,16 @@ public abstract class AbstractBaseModel implements BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    @EqualsAndHashCode.Include
     private Long id;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
 
     /**
      * {@return Obtém o ID de uma entidade associada (representada por um atributo), ou 0 caso o atributo ou seu id seja nulo}
@@ -50,4 +57,16 @@ public abstract class AbstractBaseModel implements BaseModel {
         return this.id != null && this.id == id;
     }
 
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final AbstractBaseModel that = (AbstractBaseModel) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

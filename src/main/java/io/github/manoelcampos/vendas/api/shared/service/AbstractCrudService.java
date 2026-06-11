@@ -3,14 +3,13 @@ package io.github.manoelcampos.vendas.api.shared.service;
 import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import io.github.manoelcampos.vendas.api.shared.controller.AbstractController;
 import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -21,9 +20,10 @@ import java.util.function.Supplier;
  * @param <R> {@inheritDoc}
  * @author Manoel Campos
  */
-@Slf4j @Service @RequiredArgsConstructor
+@Service
 public abstract class AbstractCrudService<T extends AbstractBaseModel, R extends EntityRepository<T>> implements CrudService<T, R> {
-    @Getter
+    private static final Logger log = LoggerFactory.getLogger(AbstractCrudService.class);
+
     private final R repository;
 
     /**
@@ -31,6 +31,14 @@ public abstract class AbstractCrudService<T extends AbstractBaseModel, R extends
      * para fazer lazy initialization.</p>
      */
     private String entityClassName;
+
+    protected AbstractCrudService(final R repository) {
+        this.repository = repository;
+    }
+
+    public R getRepository() {
+        return repository;
+    }
 
     /**
      * Obtém um {@link Supplier} de {@link NoSuchElementException} com a mensagem passada como parâmetro.
@@ -40,7 +48,8 @@ public abstract class AbstractCrudService<T extends AbstractBaseModel, R extends
      * @param msg mensagem de erro a ser exibida quando a exceção retornada pelo Supplier for lançada
      * @return o supplier de {@link NoSuchElementException}
      */
-    protected static Supplier<NoSuchElementException> notFoundSupplier(@NonNull final String msg) {
+    protected static Supplier<NoSuchElementException> notFoundSupplier(final String msg) {
+        Objects.requireNonNull(msg, "msg não pode ser nulo");
         return () -> new NoSuchElementException(msg);
     }
 

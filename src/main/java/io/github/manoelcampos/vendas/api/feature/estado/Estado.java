@@ -7,16 +7,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = ConstraintKeys.UC_ESTADO_DESCRICAO, columnNames = "descricao"),
 })
-@Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Estado extends AbstractBaseModel {
     @NotNull @NotBlank
     private String descricao;
@@ -24,11 +19,35 @@ public class Estado extends AbstractBaseModel {
     @NotNull @NotBlank
     private String sigla;
 
+    public Estado() {
+    }
+
+    public Estado(final String descricao, final String sigla) {
+        setDescricao(descricao);
+        setSigla(sigla);
+    }
+
     public Estado(final long id) {
         this.setId(id);
     }
 
     public Estado(final String descricao) {
         this.setDescricao(descricao);
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(final String sigla) {
+        this.sigla = sigla;
     }
 }

@@ -4,13 +4,12 @@ import io.github.manoelcampos.vendas.api.shared.EntityRepository;
 import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.service.AbstractCrudService;
 import io.github.manoelcampos.vendas.api.shared.util.PathUtil;
-import lombok.Getter;
-import lombok.NonNull;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
+import java.util.Objects;
 
 import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -29,12 +28,16 @@ public class AbstractSearchController<T extends AbstractBaseModel, R extends Ent
      */
     protected final String basePath;
 
-    @Getter
     private final S service;
 
-    public AbstractSearchController(@NonNull final S service) {
+    public AbstractSearchController(final S service) {
+        Objects.requireNonNull(service, "service não pode ser nulo");
         this.service = service;
         this.basePath = findBasePath();
+    }
+
+    public S getService() {
+        return service;
     }
 
     protected URI createdUri(final T entity) {

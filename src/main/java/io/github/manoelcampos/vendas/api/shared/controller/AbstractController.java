@@ -7,8 +7,8 @@ import io.github.manoelcampos.vendas.api.shared.validator.CustomValidator;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
-import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static io.github.manoelcampos.vendas.api.shared.controller.RestExceptionHandler.newConflictException;
@@ -33,8 +34,9 @@ import static org.springframework.http.HttpStatus.CONFLICT;
  * @param <R> tipo do repositório que acesso os dados da entidade no banco
  * @author Manoel Campos
  */
-@Slf4j
 public abstract class AbstractController<T extends AbstractBaseModel, R extends EntityRepository<T>, S extends AbstractCrudService<T, R>> extends AbstractSearchController<T, R, S> {
+    private static final Logger log = LoggerFactory.getLogger(AbstractController.class);
+
     /**
      * Validador customizado para a entidade manipulada pelo controller.
      * O validador é opcional, pois nem sempre é necessário
@@ -43,8 +45,9 @@ public abstract class AbstractController<T extends AbstractBaseModel, R extends 
      */
     private final CustomValidator<T> validator;
 
-    public AbstractController(final S service, @NonNull final CustomValidator<T> validator) {
+    public AbstractController(final S service, final CustomValidator<T> validator) {
         super(service);
+        Objects.requireNonNull(validator, "validator não pode ser nulo");
         this.validator = validator;
     }
 

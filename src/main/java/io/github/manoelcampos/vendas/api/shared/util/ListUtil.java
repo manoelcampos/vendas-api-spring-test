@@ -1,10 +1,9 @@
 package io.github.manoelcampos.vendas.api.shared.util;
 
-import lombok.NonNull;
-
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Manoel Campos
@@ -20,7 +19,8 @@ public final class ListUtil {
      * @param <T> tipo dos elementos da lista
      */
     @SafeVarargs
-    public static <T> List<T> of(@NonNull final T ...items){
+    public static <T> List<T> of(final T ...items){
+        Objects.requireNonNull(items, "items não pode ser nulo");
         final var list = new LinkedList<T>();
         Collections.addAll(list, items);
         return list;
@@ -33,7 +33,9 @@ public final class ListUtil {
      * @return a lista passada por parâmetro
      * @param <T> tipo dos elementos da lista
      */
-    public static <T> List<T> add(@NonNull final List<T> list, @NonNull final T item){
+    public static <T> List<T> add(final List<T> list, final T item){
+        Objects.requireNonNull(list, "list não pode ser nulo");
+        Objects.requireNonNull(item, "item não pode ser nulo");
         list.add(item);
         return list;
     }

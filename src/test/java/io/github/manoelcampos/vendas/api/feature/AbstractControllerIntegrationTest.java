@@ -1,7 +1,5 @@
 package io.github.manoelcampos.vendas.api.feature;
 
-import lombok.Getter;
-import lombok.experimental.Accessors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -17,7 +15,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 /// @link [Spring WebClientTest Tutorial](https://34codefactory.medium.com/spring-5-webclient-and-webtestclient-tutorial-code-factory-84e32978149a)
 /// @link [Testing of your rest api](https://rieckpil.de/spring-webtestclient-for-efficient-testing-of-your-rest-api/)
 /// @see AbstractControllerTest
-@Getter @Accessors(fluent = true)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 public abstract class AbstractControllerIntegrationTest {
@@ -30,4 +27,12 @@ public abstract class AbstractControllerIntegrationTest {
      */
     @LocalServerPort
     private int port;
+
+    public WebTestClient client() {
+        return client;
+    }
+
+    public int port() {
+        return port;
+    }
 }

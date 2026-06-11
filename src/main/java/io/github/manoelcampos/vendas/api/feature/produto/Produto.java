@@ -7,15 +7,11 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * @author Manoel Campos
  */
-@Entity @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Entity
 public class Produto extends AbstractBaseModel {
     @NotNull @NotBlank @Column(unique = true)
     private String descricao;
@@ -26,6 +22,15 @@ public class Produto extends AbstractBaseModel {
     @NotNull @Min(0)
     private int estoque;
 
+    public Produto() {
+    }
+
+    public Produto(final String descricao, final double preco, final int estoque) {
+        setDescricao(descricao);
+        setPreco(preco);
+        setEstoque(estoque);
+    }
+
     public Produto(final long id) {
         setId(id);
     }
@@ -35,5 +40,29 @@ public class Produto extends AbstractBaseModel {
         setDescricao(descricao);
         setPreco(preco);
         setEstoque(estoque);
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(final double preco) {
+        this.preco = preco;
+    }
+
+    public int getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(final int estoque) {
+        this.estoque = estoque;
     }
 }

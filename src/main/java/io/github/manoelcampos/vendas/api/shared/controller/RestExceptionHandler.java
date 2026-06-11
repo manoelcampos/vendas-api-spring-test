@@ -4,8 +4,8 @@ import io.github.manoelcampos.vendas.api.shared.exception.HttpError;
 import io.github.manoelcampos.vendas.api.shared.model.AbstractBaseModel;
 import io.github.manoelcampos.vendas.api.shared.util.ConstraintViolation;
 import jakarta.validation.Valid;
-import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +27,10 @@ import static org.springframework.http.HttpStatus.CONFLICT;
  *
  * @author Manoel Campos
  */
-@ControllerAdvice @Slf4j
+@ControllerAdvice
 public class RestExceptionHandler {
+    private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
+
     /**
      * Captura exceções {@link ResponseStatusException}
      * para permitir emitir uma mensagem junto com o código de status.
@@ -106,7 +108,6 @@ public class RestExceptionHandler {
         return validationException(ex);
     }
 
-    @NonNull
     private static ResponseEntity<HttpError> validationException(final Exception ex) {
         final var msg = ex.getMessage();
         log.error("Erro de validação", ex);

@@ -9,13 +9,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
-@Entity @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Entity
 public class Cliente extends AbstractBaseModel {
     @NotNull @NotBlank
     private String nome;
@@ -27,7 +23,40 @@ public class Cliente extends AbstractBaseModel {
     @JoinColumn(foreignKey = @ForeignKey(name = ConstraintKeys.FK_CLIENTE_CIDADE))
     private Cidade cidade;
 
+    public Cliente() {
+    }
+
+    public Cliente(final String nome, final String cpf, final Cidade cidade) {
+        setNome(nome);
+        setCpf(cpf);
+        setCidade(cidade);
+    }
+
     public Cliente(final long id) {
         setId(id);
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(final String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(final Cidade cidade) {
+        this.cidade = cidade;
     }
 }
